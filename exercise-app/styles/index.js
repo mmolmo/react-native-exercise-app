@@ -10,6 +10,12 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10
   },
+  greySubtitle: { 
+    color: '#B0B0B0', 
+    fontSize: 16, 
+    marginTop: 8,
+    textAlign: 'center'
+  },
   exerciseCard: {
     flex: 1,
     flexDirection: 'row', 
@@ -32,7 +38,23 @@ const styles = StyleSheet.create({
   },
   exerciseName: {
     fontSize: 20,
-    color: '#fff'
+    color: '#fff',
+    fontWeight: 'bold'
+  },
+  exerciseScreenH1:{
+    fontSize: 30,
+    color: '#fff',
+    fontWeight: 'bold'
+  },
+  exerciseTitleHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 10,
+  },
+  backButton: {
+    marginRight: 10,
+    backgroundColor: 'none',
   }
 });
 
