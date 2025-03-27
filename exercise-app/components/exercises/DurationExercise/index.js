@@ -18,6 +18,15 @@ const DurationExercise = () => {
   const intervalRef = useRef(null);
 
   useEffect(() => {
+    setTimer(0);
+    setStart(false);
+    startTimeRef.current = 0; 
+  }, [exercise]); // Reset count when the exercise changes
+
+  // uses useRef and usecallback to avoid unnecessary re-renders... fixes the issue of Expo App RN throwing too many renders error
+  // original start function was a usestate hook which triggered a rerender on every state change (every 10 milliseconds)
+  // useRef is used to store the current value of the timer instead, and useCallback is used to memoize the function so that it only changes when the start state changes
+  useEffect(() => {
     if (start) {
       if (startTimeRef.current === 0) {
         startTimeRef.current = Date.now() - timer;
@@ -35,7 +44,11 @@ const DurationExercise = () => {
 
   const handleReset = useCallback(() => {
     clearInterval(intervalRef.current);
+    intervalRef.current = null;
     setTimer(0);
+    // ensures that the timer is reset to 0 when the user presses the reset button
+    setStart(false);
+    console.log("reset", intervalRef.current);
     startTimeRef.current = start ? Date.now() : 0;
   }, [start]);
 

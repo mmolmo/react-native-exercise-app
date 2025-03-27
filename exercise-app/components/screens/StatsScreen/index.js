@@ -1,65 +1,36 @@
-
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import styles from '../../../styles'; 
 
 const StatsScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Statistics</Text>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.exerciseScreenH1}>Statistics</Text>
       <View style={styles.menuContainer}>
         <TouchableOpacity 
           style={styles.menuItem}
-          onPress={() => navigation.navigate('DailyStats')}
+          onPress={console.log("pressed")}
         >
-          <Text style={styles.menuText}>Daily Statistics</Text>
+          <Text style={styles.exerciseTitleHeader}>Daily Statistics</Text>
         </TouchableOpacity>
         <TouchableOpacity 
           style={styles.menuItem}
-          onPress={() => navigation.navigate('WeeklyStats')}
+          onPress={console.log("pressed")}
         >
-          <Text style={styles.menuText}>Weekly Statistics</Text>
+          <Text style={styles.exerciseTitleHeader}>Weekly Statistics</Text>
         </TouchableOpacity>
         <TouchableOpacity 
           style={styles.menuItem}
-          onPress={() => navigation.navigate('MonthlyStats')}
+          onPress={console.log("pressed")}
         >
-          <Text style={styles.menuText}>Monthly Statistics</Text>
+          <Text style={styles.exerciseTitleHeader}>Monthly Statistics</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  menuContainer: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  menuItem: {
-    backgroundColor: '#f0f0f0',
-    padding: 20,
-    borderRadius: 10,
-    marginBottom: 15,
-    alignItems: 'center',
-  },
-  menuText: {
-    fontSize: 18,
-    fontWeight: '500',
-  },
-});
-
 export default StatsScreen;

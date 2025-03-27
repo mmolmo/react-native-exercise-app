@@ -1,27 +1,28 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../../screens/HomeScreen';
 import StatsScreen from '../../screens/StatsScreen';
-import WorkoutStack from '../../nav/WorkoutStack';
+import HomeStack from '../../nav/HomeStack';
 import { Icon } from '@rneui/themed';
+import WorkoutsScreen from '../../screens/WorkoutsScreen';
 
 const Tab = createBottomTabNavigator();
 
 const BottomNavbar = () => {
   return (
     <Tab.Navigator
-        tabBarOptions={{
-            
-        }}
-        screenOptions={{
-            tabBarStyle: {
-                backgroundColor: '#000',
-            }, 
-            tabBarActiveTintColor: '#ff2e2e',
-            tabBarInactiveTintColor: '#8B8B90',
-            headerShown: false,
-        }}
+      tabBarOptions={{
+          
+      }}
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#000',
+        }, 
+        tabBarActiveTintColor: '#ff2e2e',
+        tabBarInactiveTintColor: '#8B8B90',
+        headerShown: false,
+      }}
     >
-      <Tab.Screen name="Home" component={HomeScreen} options={{
+      <Tab.Screen name="Home" component={HomeStack} options={{
         tabBarIcon: ({ color, size }) => (
           <Icon 
             name="home" 
@@ -31,7 +32,7 @@ const BottomNavbar = () => {
             />
         ),
       }} />
-      <Tab.Screen name="Workouts" component={WorkoutStack} options ={{
+      <Tab.Screen name="Workouts" component={WorkoutsScreen} options ={{
         tabBarIcon: ({ color, size }) => (
           <Icon
             name="fitness"

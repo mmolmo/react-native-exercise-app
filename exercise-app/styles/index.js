@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -45,21 +45,27 @@ const styles = StyleSheet.create({
     minHeight: 100,
     padding: 10,
     borderBottomWidth: 1,
-    borderColor: '#ddd343',
     borderRadius: 8,
-    backgroundColor: '#1D2FD4',
+    backgroundColor: '#000',
     overflow: 'hidden',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+  },
+  cardGreySubtitle: { 
+    color: '#f2f2f2c2', 
+    fontSize: 16, 
+    marginTop: 8,
+    textAlign: 'left'
+  },
+  exerciseCardButton: {
+    backgroundColor: 'tomato',
+    borderRadius: 50,
+    padding: 5,
+    width: 50,
+    height: 50,
+    margin: 5,
   },
   exerciseCardIcon: {
-    width:50,
-    height:50,
-  },
-  exerciseTouchableHighlight: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 10,
   },
   exerciseName: {
     fontSize: 20,
@@ -74,6 +80,7 @@ const styles = StyleSheet.create({
   exerciseTitleHeader: {
     flexDirection: 'row',
     alignItems: 'center',
+    textAlign: 'center',
     justifyContent: 'space-between',
     padding: 10,
     color: '#fff',
@@ -94,8 +101,7 @@ const styles = StyleSheet.create({
   exerciseFooter: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-end', 
-    alignItems: 'center',
+    justifyContent: 'center',
     paddingBottom: 20,
   },
   exerciseTextBold: {
@@ -147,7 +153,11 @@ const styles = StyleSheet.create({
     width: 65,
     height: 65,
     margin: 5,
-  }
+  },
+  ExerciseWeightContainer: {
+    justifyContent: 'center',
+    marginTop: 20,
+  },
 });
 
 export default styles;
