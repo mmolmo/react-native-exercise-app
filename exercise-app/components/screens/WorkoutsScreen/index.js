@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { SafeAreaView, ScrollView, FlatList } from 'react-native';
+import { SafeAreaView, Text, FlatList } from 'react-native';
 
 import ExerciseNavCard from '../../elements/ExerciseNavCard';
 
@@ -45,11 +45,21 @@ export default function WorkoutsScreen() {
       <ExerciseNavCard
         key={item.key} // Ensure unique key
         exercise={item}
+        allExercises={exerciseData}
       />
     );
   
     return (
       <SafeAreaView style={styles.container}>
+        <Text style={{ color: '#FFFFFF', fontSize: 32, fontWeight: 'bold' }}>
+          Welcome back!
+        </Text>
+        <Text style={{ color: '#B0B0B0', fontSize: 16, marginTop: 8 }}>
+          Let's crush your fitness goals today
+        </Text>
+        <Text style={styles.exerciseTitleHeader}>
+          Exercises for You
+        </Text>
         <FlatList 
           data={exerciseData}
           renderItem={renderItem}

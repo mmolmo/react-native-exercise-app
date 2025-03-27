@@ -6,16 +6,13 @@ import RepetitionExercise from '../../exercises/RepetitionExercise';
 
 // import { useNavigation } from '@react-navigation/native';
 
-import {
-    createStaticNavigation,
-    useNavigation,
-  } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 // import { View } from 'react-native';
 // import { CheckBox } from '@rneui/themed';
 import styles from '../../../styles'; // Import styles if in separate file
 
-const ExerciseNavCard = ({ exercise }) => {
+const ExerciseNavCard = ({ exercise, allExercises }) => {
 
     const navigation = useNavigation();
     const exerciseScreens = {
@@ -29,10 +26,11 @@ const ExerciseNavCard = ({ exercise }) => {
         
         const exerciseType = exercise.type;
         const screenName = exerciseScreens[exercise.type];
-        console.log( exerciseType + ' Pressed!');
+        // console.log( exerciseType + ' Pressed!');
         if (screenName) {
+            // console.log("all exercises", allExercises);
             console.log(`${screenName} Pressed! Navigating to ${screenName}`);
-            navigation.navigate(screenName, { exercise: exercise });
+            navigation.navigate(screenName, { exercise: exercise, allExercises: allExercises });
         } else {
             console.warn(`No screen found for exercise type: ${exercise.type}`);
         }
@@ -66,9 +64,10 @@ const ExerciseNavCard = ({ exercise }) => {
             />
             <Text style={styles.exerciseName}>{exercise.name}</Text>
             <Icon
-                name='trash-outline'
+                name='barbell-outline'
                 type='ionicon'
-                // iconStyle={styles.trashIcon}
+                color= '#fff'
+                iconStyle={styles.exerciseCardIcon}
                 // onPress={() => handleDeleteTask(item.key)}
             />
             </View>
